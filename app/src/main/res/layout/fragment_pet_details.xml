@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (C) 2021 The Android Open Source Project.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/margin"
+    tools:context=".fragments.details.PetDetailsFragment">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_between_elements"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/dog_face"
+        android:contentDescription="@string/pet_image_description"
+        android:id="@+id/pet_image"
+        />
+
+    <TextView
+        android:id="@+id/pet_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:text="Placeholder"
+        app:layout_constraintTop_toBottomOf="@+id/pet_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/margin_between_elements"
+        />
+    <ImageView
+        android:id="@+id/water_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="18dp"
+        android:src="@drawable/water"
+        app:tint="@color/water"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/water_value"
+        app:layout_constraintTop_toBottomOf="@+id/pet_name"
+        android:layout_marginVertical="@dimen/margin_between_elements"
+        />
+    <TextView
+        android:id="@+id/water_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_between_elements"
+        app:layout_constraintStart_toEndOf="@id/water_image"
+        app:layout_constraintTop_toTopOf="@id/water_image"
+        app:layout_constraintBottom_toBottomOf="@+id/water_image"
+        android:text="100%"
+        />
+    <Button
+        android:id="@+id/fill_water_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_between_elements"
+        android:text="@string/fill_water_bowl"
+        app:layout_constraintStart_toEndOf="@id/water_value"
+        app:layout_constraintTop_toTopOf="@id/water_image"
+        app:layout_constraintBottom_toBottomOf="@+id/water_image"
+        />
+
+    <ImageView
+        android:id="@+id/food_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="18dp"
+        android:src="@drawable/food"
+        app:tint="@color/food"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/food_value"
+        app:layout_constraintTop_toBottomOf="@+id/water_image"
+        android:layout_marginVertical="@dimen/margin_between_elements"
+        />
+    <TextView
+        android:id="@+id/food_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_between_elements"
+        app:layout_constraintStart_toEndOf="@id/food_image"
+        app:layout_constraintTop_toTopOf="@id/food_image"
+        app:layout_constraintBottom_toBottomOf="@+id/food_image"
+        android:text="100%"
+        />
+    <Button
+        android:id="@+id/fill_food_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_between_elements"
+        android:text="@string/fill_food_bowl"
+        app:layout_constraintStart_toEndOf="@id/food_value"
+        app:layout_constraintTop_toTopOf="@id/food_image"
+        app:layout_constraintBottom_toBottomOf="@+id/food_image"
+        />
+
+    <TextView
+        android:id="@+id/happiness_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:text="@string/happiness"
+        app:layout_constraintTop_toBottomOf="@+id/food_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/margin_between_elements"
+        />
+    <TextView
+        android:id="@+id/happiness_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="70sp"
+        android:textStyle="bold"
+        android:text="100%"
+        app:layout_constraintTop_toBottomOf="@+id/happiness_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/margin_between_elements"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
