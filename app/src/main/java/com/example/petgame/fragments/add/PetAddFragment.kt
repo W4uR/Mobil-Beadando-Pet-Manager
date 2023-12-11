@@ -17,6 +17,7 @@ import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.time.LocalDateTime
 
 /**
  * A simple [Fragment] subclass.
@@ -71,7 +72,7 @@ class PetAddFragment : Fragment() {
 
     private fun insertPetToDatabase(){
         if (isEntryValid()){
-            viewModel.addPet(Pet(id = 0, petName = binding.petName.text.toString(), petImage = binding.petImage.drawable.toBitmap()))
+            viewModel.addPet(Pet(id = 0, petName = binding.petName.text.toString(), petImage = binding.petImage.drawable.toBitmap(), lastFed = LocalDateTime.now(), lastDrink = LocalDateTime.now()))
             this.findNavController().navigate(PetAddFragmentDirections.actionPetAddFragmentToPetListFragment())
         }else{
             Toast.makeText(requireContext(), "The pet needs a name!", Toast.LENGTH_SHORT).show()

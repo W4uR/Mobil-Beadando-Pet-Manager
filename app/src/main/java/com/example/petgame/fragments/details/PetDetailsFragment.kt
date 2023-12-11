@@ -9,6 +9,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.example.petgame.PetViewModel
 import com.example.petgame.data.Model.Pet
+import com.example.petgame.data.Model.PetWithStats
+import com.example.petgame.data.Model.getFormatedFoodPercentage
+import com.example.petgame.data.Model.getFormatedHappiness
+import com.example.petgame.data.Model.getFormatedWaterPercentage
 import com.example.petgame.databinding.FragmentPetDetailsBinding
 
 /**
@@ -18,7 +22,7 @@ import com.example.petgame.databinding.FragmentPetDetailsBinding
  */
 class PetDetailsFragment : Fragment() {
     private val navigationArgs: PetDetailsFragmentArgs by navArgs()
-    lateinit var pet: Pet
+    lateinit var petWithStats: PetWithStats
 
     private val viewModel: PetViewModel by lazy {
         val activity = requireNotNull(this.activity) {
@@ -46,20 +50,24 @@ class PetDetailsFragment : Fragment() {
         // Retrieve the item details using the itemId.
         // Attach an observer on the data (instead of polling for changes) and only update the
         // the UI when the data actually changes.
-        viewModel.retrivePet(id).observe(this.viewLifecycleOwner) { selectedItem ->
-            pet = selectedItem
-            bind(pet)
+        viewModel.retrivePetWithStats(id).observe(this.viewLifecycleOwner) { selectedItem ->
+            petWithStats = selectedItem
+            bind(petWithStats)
         }
     }
 
     /**
      * Binds views with the passed in item data.
      */
-    private fun bind(pet: Pet) {
+    private fun bind(petWithStats: PetWithStats) {
         binding.apply {
-            petName.text = pet.petName
-            petImage.setImageBitmap(pet.petImage)
+            petName.text = petWithStats.pet.petName
+            petImage.setImageBitmap(petWithStats.pet.petImage)
+            waterValue.text = petWithStats.getFormatedWaterPercentage()
+            foodValue.text = petWithStats.getFormatedFoodPercentage()
+            happinessValue.text = petWithStats.getFormatedHappiness()
             //TODO: add onlcick for bowl filling
+
         }
     }
 

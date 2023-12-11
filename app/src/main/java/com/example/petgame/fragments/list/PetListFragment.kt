@@ -44,14 +44,14 @@ class PetListFragment : Fragment() {
 
         val adapter = ItemListAdapter {
             val action =
-                PetListFragmentDirections.actionPetListFragmentToPetDetailsFragment(it.id)
+                PetListFragmentDirections.actionPetListFragmentToPetDetailsFragment(it.pet.id)
             this.findNavController().navigate(action)
         }
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
         binding.recyclerView.adapter = adapter
         // Attach an observer on the allItems list to update the UI automatically when the data
         // changes.
-        viewModel.getPets.observe(this.viewLifecycleOwner) { pets ->
+        viewModel.getPetsWithStats.observe(this.viewLifecycleOwner) { pets ->
             pets.let {
                 adapter.submitList(it)
             }

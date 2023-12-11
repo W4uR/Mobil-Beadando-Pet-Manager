@@ -19,6 +19,7 @@ import android.graphics.Bitmap
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.time.LocalDateTime
 
 /**
  * Entity data class represents a single row in the database.
@@ -31,4 +32,8 @@ data class Pet(
     val petName: String,
     @ColumnInfo(name = "image")
     val petImage: Bitmap,
+    @ColumnInfo(name = "lastFed")
+    val lastFed: LocalDateTime,
+    @ColumnInfo(name = "lastDrink")
+    val lastDrink: LocalDateTime,
 )
