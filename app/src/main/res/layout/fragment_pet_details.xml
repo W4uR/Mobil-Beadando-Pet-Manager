@@ -23,16 +23,13 @@
     tools:context=".fragments.details.PetDetailsFragment">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_between_elements"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/dog_face"
-        android:contentDescription="@string/pet_image_description"
         android:id="@+id/pet_image"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:src="@drawable/dog_face"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/pet_name"
@@ -58,26 +55,28 @@
         app:layout_constraintTop_toBottomOf="@+id/pet_name"
         android:layout_marginVertical="@dimen/margin_between_elements"
         />
+
     <TextView
         android:id="@+id/water_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_between_elements"
-        app:layout_constraintStart_toEndOf="@id/water_image"
-        app:layout_constraintTop_toTopOf="@id/water_image"
-        app:layout_constraintBottom_toBottomOf="@+id/water_image"
         android:text="100%"
-        />
+        app:layout_constraintBottom_toBottomOf="@+id/water_image"
+        app:layout_constraintEnd_toStartOf="@+id/pet_name"
+        app:layout_constraintStart_toEndOf="@id/water_image"
+        app:layout_constraintTop_toTopOf="@id/water_image" />
+
     <Button
         android:id="@+id/fill_water_button"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_between_elements"
         android:text="@string/fill_water_bowl"
-        app:layout_constraintStart_toEndOf="@id/water_value"
-        app:layout_constraintTop_toTopOf="@id/water_image"
         app:layout_constraintBottom_toBottomOf="@+id/water_image"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/water_value"
+        app:layout_constraintTop_toTopOf="@id/water_image" />
 
     <ImageView
         android:id="@+id/food_image"
@@ -91,26 +90,31 @@
         app:layout_constraintTop_toBottomOf="@+id/water_image"
         android:layout_marginVertical="@dimen/margin_between_elements"
         />
+
     <TextView
         android:id="@+id/food_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_between_elements"
+        android:layout_marginStart="4dp"
+        android:text="100%"
+        app:layout_constraintBottom_toBottomOf="@+id/food_image"
+        app:layout_constraintEnd_toStartOf="@+id/pet_name"
         app:layout_constraintStart_toEndOf="@id/food_image"
         app:layout_constraintTop_toTopOf="@id/food_image"
-        app:layout_constraintBottom_toBottomOf="@+id/food_image"
-        android:text="100%"
-        />
+        app:layout_constraintVertical_bias="0.428" />
+
     <Button
         android:id="@+id/fill_food_button"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_between_elements"
+        android:layout_marginStart="6dp"
         android:text="@string/fill_food_bowl"
-        app:layout_constraintStart_toEndOf="@id/food_value"
-        app:layout_constraintTop_toTopOf="@id/food_image"
         app:layout_constraintBottom_toBottomOf="@+id/food_image"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/food_value"
+        app:layout_constraintTop_toTopOf="@id/food_image" />
 
     <TextView
         android:id="@+id/happiness_text"
